@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 
 import registerServiceWorker from './registerServiceWorker';
-import App from './components/App/App';
+import FlightSearchEngineApp from './components/FlightSearchEngineApp/FlightSearchEngineApp';
 import './index.css';
 
-render(<App />, document.getElementById('root'));
+render(<FlightSearchEngineApp />, document.getElementById('root'));
 registerServiceWorker();
