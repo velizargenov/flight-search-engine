@@ -18,11 +18,7 @@ const SearchBar = () => (
       <Button text="Return" />
     </div>
     <form>
-      <InputField
-        htmlFor="fromInput"
-        text="From"
-        type="text"
-      />
+      <InputField htmlFor="fromInput" text="From" type="text" />
       <InputField htmlFor="fromInput" text="Destination" type="text" />
       <InputField htmlFor="departureDate" text="Departure Date" type="date" />
       <InputField htmlFor="returnDate" text="Return Date" type="date" />
