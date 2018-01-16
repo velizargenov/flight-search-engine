@@ -5,3 +5,9 @@ h1 {
 .App {
   text-align: center;
 }
+
+#root {
+  border: 1px solid black;
+  width: 1024px;
+  margin: 0 auto;
+}

@@ -4,6 +4,7 @@ html, body {
 }
 
 body {
+  border: 2px solid red;
   font-family: sans-serif;
   background: rgb(207, 207, 207);
 }

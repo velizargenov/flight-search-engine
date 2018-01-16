@@ -1,16 +1,26 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+
+import flights from '../../data';
 import FlightSearchEngineApp from './FlightSearchEngineApp';
+import Header from '../Header/Header';
+import ResultTable from '../ResultTable/ResultTable';
+
+let wrapper;
+beforeEach(() => {
+  wrapper = mount(<FlightSearchEngineApp flights={flights} />);
+});
 
 describe('<FlightSearchEngineApp /> component', () => {
-  it('render <FlightSearchEngineApp /> without crashing', () => {
-    const div = document.createElement('div');
-    render(<FlightSearchEngineApp />, div);
-  });
-
-  it('should render <FlightSearchEngineApp /> correctly', () => {
-    const wrapper = shallow(<FlightSearchEngineApp />);
-    expect(wrapper.length).toBe(1);
+  describe('Renders child components correctly', () => {
+    it('should render <FlightSearchEngineApp /> without crashing', () => {
+      expect(wrapper.length).toBe(1);
+    });
+    it('renders <Header /> component inside <FlightSearchEngineApp /> component', () => {
+      expect(wrapper.find(Header).length).toBe(1);
+    });
+    it('renders <ResultTable /> component inside <FlightSearchEngineApp /> component', () => {
+      expect(wrapper.find(ResultTable).length).toBe(1);
+    });
   });
 });

@@ -1,7 +1,8 @@
 import React from 'react';
+import './Header.css';
 
 const Header = () => (
-  <h2>Header Component</h2>
+  <header>Flight Search Engine</header>
 );
 
 export default Header;
