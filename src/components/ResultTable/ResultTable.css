@@ -1,29 +1,43 @@
-.result-table--wrapper {
+.result-table {
   width: 746px;
   padding: 21px 10px 0 10px;
   display: inline-block;
   overflow-y: auto;
   height: 563px;
+  position: relative;
 }
-
-.result-table--wrapper::-webkit-scrollbar {
+.result-table::-webkit-scrollbar {
   display: none;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
-
-.result-table--wrapper > h2 {
+.result-table > h2 {
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 1px;
   margin: 0;
   padding: 0;
 }
-
-.result-table--wrapper > section {
-  border: 1px solid red;
+.result-table > section {
   display: inline-block;
+  overflow: hidden;
+  max-width: 200px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  top: 21px;
 }
-
-.result-table--wrapper > section > span {
-  border: 1px solid blue;
+.result-table--summary {
+  display: block;
+  overflow: hidden;
+  max-width: 200px;
+  max-height: 13px;
+  font-size: 11px;
+  letter-spacing: 0.7px;
+  margin-bottom: 3px;
+}
+.result-table--summary:last-child {
+  margin-bottom: 0;
+}
+.result-table--summary > .label {
+  margin-right: 5px;
 }
