@@ -12,7 +12,7 @@ const InputField = ({ htmlFor, text, ...otherProps }) => (
 );
 
 const SearchBar = () => (
-  <section>
+  <div className="search-bar--wrapper">
     <div className="search-bar--buttons">
       <Button text="One way" />
       <Button text="Return" />
@@ -24,7 +24,7 @@ const SearchBar = () => (
       <InputField htmlFor="returnDate" text="Return Date" type="date" />
       <InputField htmlFor="passengers" text="Passengers" type="number" />
     </form>
-  </section>
+  </div>
 );
 
 export default SearchBar;

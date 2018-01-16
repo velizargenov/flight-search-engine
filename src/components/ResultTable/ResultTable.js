@@ -1,9 +1,9 @@
 import React from 'react';
 import Flight from '../Flight/Flight';
+import './ResultTable.css';
 
 const ResultTable = ({ flights }) => (
-  <React.Fragment>
-    <h2>--ResultTable component</h2>
+  <div className="result-table--wrapper">
     <h2>Your results</h2>
     <section>
       <span>Depart: 1st Jan 2014;</span>
@@ -12,7 +12,7 @@ const ResultTable = ({ flights }) => (
     {
       flights.map(flight => <Flight key={flight.id} details={flight} />)
     }
-  </React.Fragment>
+  </div>
 );
 
 export default ResultTable;

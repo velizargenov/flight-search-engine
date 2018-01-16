@@ -9,5 +9,18 @@ h1 {
 #root {
   border: 1px solid black;
   width: 1024px;
+  height: 700px;
   margin: 0 auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -350px;
+  margin-left: -512px;
+
+  overflow: hidden;
+}
+
+#root > main {
+  height: 582px; 
 }

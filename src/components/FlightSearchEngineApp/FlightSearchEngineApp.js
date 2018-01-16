@@ -11,10 +11,10 @@ class FlightSearchEngineApp extends Component {
     return (
       <React.Fragment>
         <Header />
-        <section>
+        <main>
           <SearchBar />
           <ResultTable flights={this.props.flights} />
-        </section>
+        </main>
       </React.Fragment>
     );
   }

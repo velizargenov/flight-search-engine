@@ -1,0 +1,29 @@
+.result-table--wrapper {
+  width: 746px;
+  padding: 21px 10px 0 10px;
+  display: inline-block;
+  overflow-y: auto;
+  height: 563px;
+}
+
+.result-table--wrapper::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.result-table--wrapper > h2 {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+.result-table--wrapper > section {
+  border: 1px solid red;
+  display: inline-block;
+}
+
+.result-table--wrapper > section > span {
+  border: 1px solid blue;
+}
