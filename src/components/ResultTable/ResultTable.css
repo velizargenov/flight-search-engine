@@ -4,27 +4,31 @@
   display: inline-block;
   overflow-y: auto;
   height: 563px;
-  position: relative;
 }
 .result-table::-webkit-scrollbar {
   display: none;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
-.result-table > h2 {
-  font-size: 18px;
+.result-table--header {
+  position: relative;
+  height: 30px;
+  margin-bottom: 35px;
+}
+.result-table h2 {
+  display: inline-block;
+  font-size: 19px;
   font-weight: 400;
   letter-spacing: 1px;
   margin: 0;
   padding: 0;
 }
-.result-table > section {
+.result-table section {
   display: inline-block;
   overflow: hidden;
   max-width: 200px;
   position: absolute;
   right: 10px;
   top: 0;
-  top: 21px;
 }
 .result-table--summary {
   display: block;

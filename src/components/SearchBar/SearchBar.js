@@ -12,7 +12,7 @@ const InputField = ({ htmlFor, text, ...otherProps }) => (
 );
 
 const SearchBar = () => (
-  <div className="search-bar--wrapper">
+  <div className="search-bar">
     <div className="search-bar--buttons">
       <Button text="One way" />
       <Button text="Return" />
