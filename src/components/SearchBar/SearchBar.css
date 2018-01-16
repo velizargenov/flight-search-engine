@@ -1,8 +1,29 @@
 .search-bar {
   border-right: 1px solid #000000;
   width: 236px;
-  height: 584px;
-  padding: 0 10px;
-
+  height: 542px;
+  padding: 21px 10px;
   float: left;
+}
+.search-bar form {
+  border: 1px solid black;
+  min-height: 350px;
+  overflow: hidden;
+}
+.input {
+  display: inline-block;
+  width: 212px; 
+  padding: 9px 10px 2px 10px;
+  /* width: 216px; */
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.input input {
+  border: 1px solid black;
+  width: 208px;
+  height: 20px;
+}
+.input--text {
+  display: block;
+  margin: 0 0 2px 3px;
 }
