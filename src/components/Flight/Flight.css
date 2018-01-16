@@ -23,8 +23,8 @@
   letter-spacing: 0.5px;
   float: left;
   position: relative;
-  left: 30px;
-  top: 30px;
+  left: 20px;
+  top: 33px;
 }
 .flight--details-container {
   /* border: 1px solid blue; */
@@ -34,13 +34,13 @@
   letter-spacing: 0.5px;
   position: relative;
   top: 10px;
-  left: 15px;
+  left: 20px;
   float: left;
 }
 .flight--details {
   /* border: 1px solid red; */
   display: inline-block;
-  width: 165px;
+  width: 166px;
 }
 .flight--details span {
   display: block;
@@ -69,4 +69,11 @@
 .flight-details--time > .time {
   /* border: 1px solid blue; */
   float: right;
+}
+.button--search-this-flight {
+  float: right;
+  position: relative;
+  /* left: 40px; */
+  top: 29px;
+  
 }

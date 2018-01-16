@@ -1,0 +1,14 @@
+input[type=button] {
+  cursor: pointer;
+  background: rgb(168, 168, 168);
+  border: 1px solid #000000;
+  border-radius: 7px;
+  height: 32px;
+  width: 124px;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+.button--search-this-flight {
+  /* border: 2px solid red; */
+}

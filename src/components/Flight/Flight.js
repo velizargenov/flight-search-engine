@@ -45,7 +45,7 @@ const FlightDetails = ({ flightType, details }) => {
 /* eslint-disable */
 class Flight extends Component {
   render () {
-    const { airlineLogo, airlineName, price } = this.props.details;
+    const { id, airlineLogo, airlineName, price } = this.props.details;
     return (
       <div className="flight">
 
@@ -59,7 +59,11 @@ class Flight extends Component {
 
         <div className="flight--price">£{price}</div>
 
-        <Button type="button" text="Select this flight" />
+        <Button 
+          htmlFor={id} 
+          className='button--search-this-flight' 
+          value='Search this flight'
+        />
       </div>
     );
   }

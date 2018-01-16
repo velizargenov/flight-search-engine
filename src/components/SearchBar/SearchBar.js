@@ -14,8 +14,8 @@ const InputField = ({ htmlFor, text, ...otherProps }) => (
 const SearchBar = () => (
   <div className="search-bar">
     <div className="search-bar--buttons">
-      <Button text="One way" />
-      <Button text="Return" />
+      <Button htmlFor="one-way" value="One way" />
+      <Button htmlFor="return" value="Return" />
     </div>
     <form>
       <InputField htmlFor="fromInput" text="From" type="text" />
