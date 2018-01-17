@@ -18,7 +18,7 @@ class FlightSearchEngineApp extends Component {
       destination: '',
       departureDate: formatDate(moment()), 
       returnDate: 'not selected',
-      numberOfPassengers: 0,
+      numberOfPassengers: "1",
       priceRange: { min: 0, max: 200 },
       userHasSearched: false,
       flights: []
@@ -28,6 +28,7 @@ class FlightSearchEngineApp extends Component {
     this.handleClicksOnReturnButton = this.handleClicksOnReturnButton.bind(this);
     this.handleDepartureDateChange = this.handleDepartureDateChange.bind(this);
     this.handleReturnDateChange = this.handleReturnDateChange.bind(this);
+    this.onPassengerNumberChange = this.onPassengerNumberChange.bind(this);
   }
 
   handleClicksOnOneWayButton() {
@@ -54,6 +55,12 @@ class FlightSearchEngineApp extends Component {
     })
   }
 
+  onPassengerNumberChange(numberOfPassengers) {
+    this.setState({
+      numberOfPassengers: numberOfPassengers
+    })
+  }
+
   render () {
     const { isReturnFlight, departureDate, returnDate } = this.state
     return (
@@ -68,6 +75,7 @@ class FlightSearchEngineApp extends Component {
             isReturnFlight={isReturnFlight}
             departureDate={departureDate}
             returnDate={returnDate}
+            onPassengerNumberChange={this.onPassengerNumberChange}
           />
           <ResultTable 
             flights={this.props.flights}
