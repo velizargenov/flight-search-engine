@@ -7,23 +7,55 @@
 }
 .search-bar form {
   border: 1px solid black;
-  min-height: 350px;
-  overflow: hidden;
+  min-height: 345px;
 }
 .input {
   display: inline-block;
   width: 212px; 
-  padding: 9px 10px 2px 10px;
+  padding: 13px 10px 0px 10px;
   /* width: 216px; */
-  font-size: 12px;
-  letter-spacing: 0.5px;
 }
 .input input {
   border: 1px solid black;
   width: 208px;
   height: 20px;
+  padding: 0 3px
 }
 .input--text {
   display: block;
+  font-size: 12px;
+  letter-spacing: 0.5px;
   margin: 0 0 2px 3px;
+}
+.search-bar--date {
+  margin-left: 10px;
+  margin-top: 9px;
+  position: relative;
+}
+.search-bar--arrow {
+  width: 27px;
+  height: 22px;
+  position: absolute;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
+  right: 10px;
+  z-index: 999;
+  top: 17px;
+  background: rgb(207, 207, 207);
+  cursor: pointer;
+}
+.search-bar--arrow:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #000000;
+  position: absolute;
+  top: 6px;
+  left: 5px;
+}
+.search-bar--button-search {
+  margin-left: 55px;
+  margin: 35px 0 0 55px;
 }

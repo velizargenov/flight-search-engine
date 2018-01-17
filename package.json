@@ -10,8 +10,12 @@
   },
   "private": true,
   "dependencies": {
+    "moment": "^2.20.1",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-datepicker": "^1.0.4",
     "react-dom": "^16.2.0",
+    "react-input-range": "^1.3.0",
     "react-scripts": "1.0.17"
   },
   "devDependencies": {

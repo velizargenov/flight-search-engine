@@ -7,3 +7,15 @@ body {
   font-family: sans-serif;
   background: rgb(207, 207, 207);
 }
+
+/* Overwritten */
+.react-datepicker-wrapper input {
+  cursor: pointer;
+  border: 1px solid black;
+  width: 208px;
+  height: 20px;
+  padding-left: 3px;
+}
+.react-datepicker-popper {
+  z-index: 99999;
+}
