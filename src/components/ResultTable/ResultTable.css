@@ -25,7 +25,8 @@
 .result-table section {
   display: inline-block;
   overflow: hidden;
-  max-width: 200px;
+  height: 30px;
+  width: 130px;
   position: absolute;
   right: 10px;
   top: 0;
@@ -34,7 +35,7 @@
   display: block;
   overflow: hidden;
   max-width: 200px;
-  max-height: 13px;
+  height: 13px;
   font-size: 11px;
   letter-spacing: 0.7px;
   margin-bottom: 3px;

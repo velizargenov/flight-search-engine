@@ -2,7 +2,7 @@ import React from 'react';
 import Flight from '../Flight/Flight';
 import './ResultTable.css';
 
-const ResultTable = ({ flights }) => (
+const ResultTable = ({ flights, isReturnFlight }) => (
   <div className="result-table">
     <div className="result-table--header">
       <h2>Your Results</h2>
@@ -11,7 +11,10 @@ const ResultTable = ({ flights }) => (
           <span className="label">Depart:</span>1st Jan 2014
         </span>
         <span className="result-table--summary return">
-          <span className="label">Return:</span>10th Jan 2014
+          {
+            isReturnFlight &&
+            <span className="label">Return: <span>10th Jan 2014</span></span>
+          }
         </span>
       </section>
     </div>

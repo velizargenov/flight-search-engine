@@ -49,7 +49,10 @@ class FlightSearchEngineApp extends Component {
             handleClicksOnReturnButton={this.handleClicksOnReturnButton}
             isReturnFlight={isReturnFlight}
           />
-          <ResultTable flights={this.props.flights} />
+          <ResultTable 
+            flights={this.props.flights}
+            isReturnFlight={isReturnFlight}
+          />
         </main>
       </React.Fragment>
     );
