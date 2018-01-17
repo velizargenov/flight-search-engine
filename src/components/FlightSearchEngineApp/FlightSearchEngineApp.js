@@ -19,7 +19,7 @@ class FlightSearchEngineApp extends Component {
       departureDate: formatDate(moment()), 
       returnDate: 'not selected',
       numberOfPassengers: "1",
-      priceRange: { min: 0, max: 200 },
+      rangeValue: { min: 0, max: 200 },
       userHasSearched: false,
       flights: []
     }
@@ -31,6 +31,7 @@ class FlightSearchEngineApp extends Component {
     this.handlePassengerNumberChange = this.handlePassengerNumberChange.bind(this);
     this.handleFromChange = this.handleFromChange.bind(this);
     this.handleDestinationChange = this.handleDestinationChange.bind(this);
+    this.handleRangeValueChange = this.handleRangeValueChange.bind(this);
   }
 
   handleClicksOnOneWayButton() {
@@ -75,8 +76,14 @@ class FlightSearchEngineApp extends Component {
     })
   }
 
+  handleRangeValueChange(rangeValue) {
+    this.setState({
+      rangeValue: rangeValue
+    })
+  }
+
   render () {
-    const { isReturnFlight, departureDate, returnDate } = this.state
+    const { isReturnFlight, departureDate, returnDate, rangeValue } = this.state
     return (
       <React.Fragment>
         <Header />
@@ -92,6 +99,8 @@ class FlightSearchEngineApp extends Component {
             onPassengerNumberChange={this.handlePassengerNumberChange}
             onFromChange={this.handleFromChange}
             onDestinationChange={this.handleDestinationChange}
+            rangeValue={rangeValue}
+            handleRangeValueChange={this.handleRangeValueChange}
           />
           <ResultTable 
             flights={this.props.flights}

@@ -1,7 +1,7 @@
 import React from 'react';
 import InputRange from 'react-input-range';
 
-const Range = ({ rangeValue }) => (
+const Range = ({ rangeValue, handleRangeValueChange }) => (
   <div className="search-bar--input-range">
     <span className="input input--text">Refine Flight Search</span>
     <InputRange
@@ -9,7 +9,7 @@ const Range = ({ rangeValue }) => (
       minValue={0}
       maxValue={200}
       value={rangeValue}
-      onChange={() => console.log('changing')}
+      onChange={handleRangeValueChange}
     />
   </div>
 );
