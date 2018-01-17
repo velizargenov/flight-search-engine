@@ -8,7 +8,7 @@ body {
   background: rgb(207, 207, 207);
 }
 
-/* Overwritten */
+/* overrwriten: react-datepicker */
 .react-datepicker-wrapper input {
   cursor: pointer;
   border: 1px solid black;
@@ -18,4 +18,63 @@ body {
 }
 .react-datepicker-popper {
   z-index: 99999;
+}
+
+/* overrwriten: react-input-range */
+.input-range {
+  width: 80%;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+.input-range__label-container {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+.input-range__label-container:before {
+  content: "£";
+}
+.input-range__label.input-range__label--min,
+.input-range__label.input-range__label--max {
+  display: none;
+}
+.input-range__label--value {
+  top: -42px;
+}
+#root>main>div.search-bar>div.search-bar--input-range>div>div>span:nth-child(3)>span {
+  right: -31px;
+}
+.input-range__slider {
+  background: rgb(168, 168, 168)  ;
+  border: 1px solid rgb(168, 168, 168);
+}
+.input-range__track.input-range__track {
+  background: #ffffff;
+}
+.input-range__track.input-range__track--active {
+  background: #000000;
+}
+
+.input-range__slider {
+  display: inline-block;
+  height: 15px;
+  width: 18px;
+  margin-left: -7px;
+  margin-top: -6px;
+  background: black;
+  border-radius: 0;
+  border: 0;
+}
+
+.input-range__slider:before {
+  border-bottom: 12px solid black;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  content: "";
+  height: 0;
+  left: 0;
+  position: absolute;
+  top: -12px;
+  width: 0;
 }

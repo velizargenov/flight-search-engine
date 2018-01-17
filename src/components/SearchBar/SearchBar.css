@@ -13,12 +13,11 @@
   display: inline-block;
   width: 212px; 
   padding: 13px 10px 0px 10px;
-  /* width: 216px; */
 }
 .input input {
   border: 1px solid black;
   width: 208px;
-  height: 20px;
+  height: 22px;
   padding: 0 3px
 }
 .input--text {
@@ -58,4 +57,10 @@
 .search-bar--button-search {
   margin-left: 55px;
   margin: 35px 0 0 55px;
+}
+.search-bar--input-range {
+  border: 1px solid #000000;
+  overflow: hidden;
+  height: 120px;
+  margin-top: 20px;
 }
