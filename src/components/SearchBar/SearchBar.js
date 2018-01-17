@@ -20,7 +20,8 @@ class SearchBar extends Component {
       onFromChange,
       onDestinationChange,
       rangeValue,
-      handleRangeValueChange
+      handleRangeValueChange,
+      handleClicksOnSearch
     } = this.props;
 
     return (
@@ -48,6 +49,7 @@ class SearchBar extends Component {
           onPassengerNumberChange={onPassengerNumberChange}
           onFromChange={onFromChange}
           onDestinationChange={onDestinationChange}
+          handleClicksOnSearch={handleClicksOnSearch}
         />
         <Range 
           rangeValue={rangeValue} 

@@ -13,6 +13,7 @@ class Form extends Component {
     this.handlePassengerNumberChange = this.handlePassengerNumberChange.bind(this);
     this.handleFromChange = this.handleFromChange.bind(this);
     this.handleDestinationChange = this.handleDestinationChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
   handlePassengerNumberChange (e) {
     this.props.onPassengerNumberChange(e.target.value);
@@ -23,6 +24,9 @@ class Form extends Component {
   handleDestinationChange (e) {
     this.props.onDestinationChange(e.target.value);
   }
+  handleFormSubmit (e) {
+    e.preventDefault();
+  }
 
   render () {
     const {
@@ -31,10 +35,11 @@ class Form extends Component {
       returnDate,
       handleDepartureDateChange,
       handleReturnDateChange,
+      handleClicksOnSearch,
     } = this.props;
 
     return (
-      <form>
+      <form onSubmit={this.handleFormSubmit}>
         <InputField
           htmlFor="fromInput"
           text="From"
@@ -74,11 +79,15 @@ class Form extends Component {
           max="5"
           onChange={this.handlePassengerNumberChange}
         />
+
         <Button
           htmlFor="search"
           className="search-bar--button-search"
-          value="Search"
+          defaultValue="Search"
+          type="submit"
+          handleClick={handleClicksOnSearch}
         />
+
       </form>
     );
   }
