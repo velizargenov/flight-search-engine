@@ -6,7 +6,9 @@ import Button from '../Button/Button';
 import InputField from './InputField';
 import InputDate from './InputDate';
 
-const Form = ({ isReturnFlight }) => (
+const Form = ({
+  isReturnFlight, departureDate, returnDate, handleDepartureDateChange, handleReturnDateChange,
+}) => (
   <form>
     <InputField
       htmlFor="fromInput"
@@ -21,14 +23,18 @@ const Form = ({ isReturnFlight }) => (
       type="text"
     />
     <InputDate
+      selectedDate={departureDate}
       dateType="departure"
       text="Departure Date"
+      handleDateChange={handleDepartureDateChange}
     />
     {
       isReturnFlight
         ? <InputDate
+          selectedDate={returnDate}
           dateType="Return Date"
           text="Return Date"
+          handleDateChange={handleReturnDateChange}
         />
         : null
     }

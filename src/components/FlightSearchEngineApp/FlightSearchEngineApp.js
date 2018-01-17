@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import './FlightSearchEngineApp.css';
 
+import { formatDate } from '../helpers';
 import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 import ResultTable from '../ResultTable/ResultTable';
@@ -14,8 +16,8 @@ class FlightSearchEngineApp extends Component {
       isReturnFlight: true,
       origin: '',
       destination: '',
-      departureDate: '', 
-      returnDate: '',
+      departureDate: formatDate(moment()), 
+      returnDate: 'not selected',
       numberOfPassengers: 0,
       priceRange: { min: 0, max: 200 },
       userHasSearched: false,
@@ -24,6 +26,8 @@ class FlightSearchEngineApp extends Component {
 
     this.handleClicksOnOneWayButton = this.handleClicksOnOneWayButton.bind(this);
     this.handleClicksOnReturnButton = this.handleClicksOnReturnButton.bind(this);
+    this.handleDepartureDateChange = this.handleDepartureDateChange.bind(this);
+    this.handleReturnDateChange = this.handleReturnDateChange.bind(this);
   }
 
   handleClicksOnOneWayButton() {
@@ -38,8 +42,20 @@ class FlightSearchEngineApp extends Component {
     })
   }
 
+  handleDepartureDateChange (date) {
+    this.setState({
+      departureDate: formatDate(date)
+    })
+  }
+
+  handleReturnDateChange (date) {
+    this.setState({
+      returnDate: formatDate(date)
+    })
+  }
+
   render () {
-    const { isReturnFlight } = this.state
+    const { isReturnFlight, departureDate, returnDate } = this.state
     return (
       <React.Fragment>
         <Header />
@@ -47,11 +63,17 @@ class FlightSearchEngineApp extends Component {
           <SearchBar 
             handleClicksOnOneWayButton={this.handleClicksOnOneWayButton} 
             handleClicksOnReturnButton={this.handleClicksOnReturnButton}
+            handleDepartureDateChange={this.handleDepartureDateChange}
+            handleReturnDateChange={this.handleReturnDateChange}
             isReturnFlight={isReturnFlight}
+            departureDate={departureDate}
+            returnDate={returnDate}
           />
           <ResultTable 
             flights={this.props.flights}
             isReturnFlight={isReturnFlight}
+            departureDate={departureDate}
+            returnDate={returnDate}
           />
         </main>
       </React.Fragment>

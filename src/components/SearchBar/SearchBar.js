@@ -11,7 +11,11 @@ class SearchBar extends Component {
     const { 
       handleClicksOnOneWayButton, 
       handleClicksOnReturnButton,
-      isReturnFlight
+      handleDepartureDateChange,
+      handleReturnDateChange,
+      isReturnFlight,
+      departureDate,
+      returnDate
     } = this.props;
 
     return (
@@ -31,7 +35,11 @@ class SearchBar extends Component {
           />
         </div>
         <Form
+          handleDepartureDateChange={handleDepartureDateChange}
+          handleReturnDateChange={handleReturnDateChange}
           isReturnFlight={isReturnFlight}
+          departureDate={departureDate}
+          returnDate={returnDate}
         />
         <Range rangeValue={{min: 0, max: 200 }} />
       </div>
