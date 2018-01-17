@@ -14,7 +14,7 @@ class FlightSearchEngineApp extends Component {
 
     this.state = {
       isReturnFlight: true,
-      origin: '',
+      from: '',
       destination: '',
       departureDate: formatDate(moment()), 
       returnDate: 'not selected',
@@ -28,7 +28,9 @@ class FlightSearchEngineApp extends Component {
     this.handleClicksOnReturnButton = this.handleClicksOnReturnButton.bind(this);
     this.handleDepartureDateChange = this.handleDepartureDateChange.bind(this);
     this.handleReturnDateChange = this.handleReturnDateChange.bind(this);
-    this.onPassengerNumberChange = this.onPassengerNumberChange.bind(this);
+    this.handlePassengerNumberChange = this.handlePassengerNumberChange.bind(this);
+    this.handleFromChange = this.handleFromChange.bind(this);
+    this.handleDestinationChange = this.handleDestinationChange.bind(this);
   }
 
   handleClicksOnOneWayButton() {
@@ -55,9 +57,21 @@ class FlightSearchEngineApp extends Component {
     })
   }
 
-  onPassengerNumberChange(numberOfPassengers) {
+  handlePassengerNumberChange(numberOfPassengers) {
     this.setState({
       numberOfPassengers: numberOfPassengers
+    })
+  }
+
+  handleFromChange (value) {
+    this.setState({
+      from: value
+    })
+  }
+
+  handleDestinationChange (value) {
+    this.setState({
+      destination: value
     })
   }
 
@@ -75,7 +89,9 @@ class FlightSearchEngineApp extends Component {
             isReturnFlight={isReturnFlight}
             departureDate={departureDate}
             returnDate={returnDate}
-            onPassengerNumberChange={this.onPassengerNumberChange}
+            onPassengerNumberChange={this.handlePassengerNumberChange}
+            onFromChange={this.handleFromChange}
+            onDestinationChange={this.handleDestinationChange}
           />
           <ResultTable 
             flights={this.props.flights}

@@ -16,7 +16,9 @@ class SearchBar extends Component {
       isReturnFlight,
       departureDate,
       returnDate,
-      onPassengerNumberChange
+      onPassengerNumberChange,
+      onFromChange,
+      onDestinationChange
     } = this.props;
 
     console.log(this.props)
@@ -44,6 +46,8 @@ class SearchBar extends Component {
           departureDate={departureDate}
           returnDate={returnDate}
           onPassengerNumberChange={onPassengerNumberChange}
+          onFromChange={onFromChange}
+          onDestinationChange={onDestinationChange}
         />
         <Range rangeValue={{min: 0, max: 200 }} />
       </div>

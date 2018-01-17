@@ -11,10 +11,19 @@ class Form extends Component {
     super(props);
 
     this.handlePassengerNumberChange = this.handlePassengerNumberChange.bind(this);
+    this.handleFromChange = this.handleFromChange.bind(this);
+    this.handleDestinationChange = this.handleDestinationChange.bind(this);
   }
   handlePassengerNumberChange (e) {
     this.props.onPassengerNumberChange(e.target.value);
   }
+  handleFromChange (e) {
+    this.props.onFromChange(e.target.value);
+  }
+  handleDestinationChange (e) {
+    this.props.onDestinationChange(e.target.value);
+  }
+
   render () {
     const {
       isReturnFlight,
@@ -31,12 +40,14 @@ class Form extends Component {
           text="From"
           placeholder="Enter your input here..."
           type="text"
+          onChange={this.handleFromChange}
         />
         <InputField
           htmlFor="fromInput"
           text="Destination"
           placeholder="Enter your input here..."
           type="text"
+          onChange={this.handleDestinationChange}
         />
         <InputDate
           selectedDate={departureDate}
