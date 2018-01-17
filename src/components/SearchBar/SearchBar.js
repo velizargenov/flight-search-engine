@@ -8,13 +8,31 @@ import Range from './Range';
 /* eslint-disable */
 class SearchBar extends Component {
   render () {
+    const { 
+      handleClicksOnOneWayButton, 
+      handleClicksOnReturnButton,
+      isReturnFlight
+    } = this.props;
+
     return (
       <div className="search-bar">
         <div className="search-bar--buttons">
-          <Button htmlFor="one-way" className="button--search-bar one-way" value="One way" />
-          <Button htmlFor="return" className="button--search-bar return" value="Return" />
+          <Button 
+            htmlFor="one-way" 
+            className="button--search-bar one-way" 
+            value="One way" 
+            handleClick={handleClicksOnOneWayButton}
+          />
+          <Button 
+            htmlFor="return" 
+            className="button--search-bar return" 
+            value="Return" 
+            handleClick={handleClicksOnReturnButton}
+          />
         </div>
-        <Form />
+        <Form
+          isReturnFlight={isReturnFlight}
+        />
         <Range rangeValue={{min: 0, max: 200 }} />
       </div>
     );
