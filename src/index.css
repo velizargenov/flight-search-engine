@@ -55,7 +55,6 @@ body {
 .input-range__track.input-range__track--active {
   background: #000000;
 }
-
 .input-range__slider {
   display: inline-block;
   height: 15px;
@@ -66,7 +65,6 @@ body {
   border-radius: 0;
   border: 0;
 }
-
 .input-range__slider:before {
   border-bottom: 12px solid black;
   border-left: 9px solid transparent;
