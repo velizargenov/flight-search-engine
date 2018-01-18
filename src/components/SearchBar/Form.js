@@ -45,6 +45,7 @@ class Form extends Component {
           text="From"
           placeholder="Enter your input here..."
           type="text"
+          required
           onChange={this.handleFromChange}
         />
         <InputField
@@ -52,6 +53,7 @@ class Form extends Component {
           text="Destination"
           placeholder="Enter your input here..."
           type="text"
+          required
           onChange={this.handleDestinationChange}
         />
         <InputDate

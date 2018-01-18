@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import flights from '../../data';
 import FlightSearchEngineApp from './FlightSearchEngineApp';
@@ -8,7 +8,7 @@ import ResultTable from '../ResultTable/ResultTable';
 
 let wrapper;
 beforeEach(() => {
-  wrapper = mount(<FlightSearchEngineApp flights={flights} />);
+  wrapper = shallow(<FlightSearchEngineApp flights={flights} />);
 });
 
 describe('<FlightSearchEngineApp /> component', () => {

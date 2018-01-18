@@ -3,7 +3,7 @@ import moment from 'moment';
 import './FlightSearchEngineApp.css';
 
 import flights from '../../data';
-import { formatDate } from '../helpers';
+import { formatDate, isValidInput } from '../helpers';
 import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 import ResultTable from '../ResultTable/ResultTable';
@@ -129,12 +129,17 @@ class FlightSearchEngineApp extends Component {
     });
     return filteredFlights;
   }
-
   handleClicksOnSearch () {
-    this.setState({
-      userHasSearched: true,
-      flights: this.returnFilteredFlights(),
-    });
+    const { from, destination } = this.state;
+    const inputFromIsValid = isValidInput(from);
+    const inputToIsValid = isValidInput(destination);
+
+    if (inputFromIsValid && inputToIsValid) {
+      this.setState({
+        userHasSearched: true,
+        flights: this.returnFilteredFlights(),
+      });
+    }
   }
 
   render () {
