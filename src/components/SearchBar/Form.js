@@ -48,7 +48,7 @@ class Form extends Component {
           onChange={this.handleFromChange}
         />
         <InputField
-          htmlFor="fromInput"
+          htmlFor="destinationInput"
           text="Destination"
           placeholder="Enter your input here..."
           type="text"

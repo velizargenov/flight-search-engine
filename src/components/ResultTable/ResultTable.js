@@ -3,19 +3,6 @@ import React, { Component } from 'react';
 import Flight from '../Flight/Flight';
 import './ResultTable.css';
 
-/**
- * Reference to state:
-      isReturnFlight: true,
-      from: '',
-      destination: '',
-      departureDate: formatDate(moment()),
-      returnDate: 'not selected',
-      numberOfPassengers: '1',
-      rangeValue: { min: 0, max: 200 },
-      userHasSearched: false,
-      flights: [],
- */
-
 /* eslint-disable */
 class ResultTable extends Component {
   render () {
@@ -39,8 +26,8 @@ class ResultTable extends Component {
         </div>
 
         { flights.length 
-          ? flights.map(flight => <Flight key={flight.id} details={flight} />)
-          : 'No flights'
+          ? flights.map(flight => <Flight key={flight.id} details={flight} isReturnFlight={isReturnFlight} />)
+          : <h1>No flights</h1>
         }
       </div>
     );

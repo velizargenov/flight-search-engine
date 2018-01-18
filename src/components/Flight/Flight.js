@@ -25,19 +25,6 @@ const FlightDetails = ({ flightType, details }) => {
           <span>Arrive:</span><span className="time">{arrivalTime}</span>
         </div>
       </div>
-
-      {/* Below elements is for testing */}
-      <div className={`flight--details ${flightType}`}>
-        <span className="flight-details--flightNumber">{flightNumber}</span>
-        <span className="flight-details--fromTo">{originAirport} &gt; {destinationAirport}</span>
-        <div className="flight-details--time">
-          <span>Depart:</span>
-          <span className="time">{departureTime}</span>
-        </div>
-        <div className="flight-details--time">
-          <span>Arrive:</span><span className="time">{arrivalTime}</span>
-        </div>
-      </div>
     </React.Fragment>
   );
 };
@@ -46,6 +33,16 @@ const FlightDetails = ({ flightType, details }) => {
 class Flight extends Component {
   render () {
     const { id, airlineLogo, airlineName, price } = this.props.details;
+
+    const renderReturnFlights = () => (
+      <React.Fragment>
+        <FlightDetails flightType='return' details={this.props.details} />
+      </React.Fragment>
+    );
+    const renderOneWayFlights = () => (
+      <FlightDetails flightType='one-way' details={this.props.details} />
+    );
+
     return (
       <div className="flight">
 
@@ -54,7 +51,7 @@ class Flight extends Component {
         </figure>
 
         <div className="flight--details-container">
-          <FlightDetails flightType='one-way' details={this.props.details} />
+          {this.props.isReturnFlight ? renderReturnFlights() : renderOneWayFlights()}
         </div>
 
         <div className="flight--price">£{price}</div>

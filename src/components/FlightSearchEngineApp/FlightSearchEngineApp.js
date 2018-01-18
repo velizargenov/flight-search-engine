@@ -102,25 +102,31 @@ class FlightSearchEngineApp extends Component {
   }
 
   filterFlights () {
-    return flights.filter((flight) => {
-      const {
-        from,
-        destination,
-        departureDate,
-        rangeValue,
-      } = this.state;
-      const userInputFrom = new RegExp(from, 'i');
-      const userInputDestination = new RegExp(destination, 'i');
-      const userInputDepartureDate = new RegExp(departureDate, 'i');
-      const flightPrice = Number(flight.price);
+    let result = [];
+    if (this.state.isReturnFlight) {
+      console.log('still thinking');
+    } else {
+      result = flights.filter((flight) => {
+        const {
+          from,
+          destination,
+          departureDate,
+          rangeValue,
+        } = this.state;
+        const userInputFrom = new RegExp(from, 'i');
+        const userInputDestination = new RegExp(destination, 'i');
+        const userInputDepartureDate = new RegExp(departureDate, 'i');
+        const flightPrice = Number(flight.price);
 
-      const matchesFrom = userInputFrom.test(flight.origin);
-      const matchesDestination = userInputDestination.test(flight.destination);
-      const matchesDepartureDate = userInputDepartureDate.test(flight.arrival);
-      const fitsIntoPriceRange = (flightPrice >= rangeValue.min) && (flightPrice <= rangeValue.max);
+        const matchesFrom = userInputFrom.test(flight.origin);
+        const matchesDestination = userInputDestination.test(flight.destination);
+        const matchesDepartureDate = userInputDepartureDate.test(flight.arrival);
+        const fitsIntoPriceRange = (flightPrice >= rangeValue.min) && (flightPrice <= rangeValue.max);
 
-      return matchesFrom && matchesDestination && matchesDepartureDate && fitsIntoPriceRange;
-    });
+        return matchesFrom && matchesDestination && matchesDepartureDate && fitsIntoPriceRange;
+      });
+    }
+    return result;
   }
 
   handleClicksOnSearch () {
