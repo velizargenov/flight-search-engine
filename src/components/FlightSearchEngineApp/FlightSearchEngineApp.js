@@ -33,106 +33,107 @@ class FlightSearchEngineApp extends Component {
     this.handleDestinationChange = this.handleDestinationChange.bind(this);
     this.handleRangeValueChange = this.handleRangeValueChange.bind(this);
     this.handleClicksOnSearch = this.handleClicksOnSearch.bind(this);
-    this.filterFlights = this.filterFlights.bind(this);
-  }
-
-  componentDidMount () {
-    // setTimeout(() => { // simulating a data retrieval from an endpoint
-    //   this.setState({
-    //     flights,
-    //   });
-    //   console.log(this.state);
-    //   this.filterFlights();
-    // }, 1000);
+    this.returnFilteredFlights = this.returnFilteredFlights.bind(this);
+    this.getFilteredReturnFlights = this.getFilteredReturnFlights.bind(this);
   }
 
   handleClicksOnOneWayButton () {
     this.setState({
       isReturnFlight: false,
+      returnDate: 'not selected',
     });
   }
 
   handleClicksOnReturnButton () {
-    this.setState({
-      isReturnFlight: true,
-    });
+    this.setState({ isReturnFlight: true });
   }
 
   handleDepartureDateChange (date) {
-    this.setState({
-      departureDate: formatDate(date),
-    });
+    this.setState({ departureDate: formatDate(date) });
   }
 
   handleReturnDateChange (date) {
-    this.setState({
-      returnDate: formatDate(date),
-    });
+    this.setState({ returnDate: formatDate(date) });
   }
 
   handlePassengerNumberChange (numberOfPassengers) {
-    this.setState({
-      numberOfPassengers,
-    });
+    this.setState({ numberOfPassengers });
   }
 
   handleFromChange (value) {
-    this.setState({
-      from: value,
-    });
+    this.setState({ from: value });
   }
 
   handleDestinationChange (value) {
-    this.setState({
-      destination: value,
-    });
+    this.setState({ destination: value });
   }
 
   handleRangeValueChange (rangeValue) {
     if (!this.state.userHasSearched) {
-      this.setState({
-        rangeValue,
-      });
+      this.setState({ rangeValue });
     } else {
       this.setState({
         rangeValue,
-        flights: this.filterFlights(),
+        flights: this.returnFilteredFlights(),
       });
     }
   }
 
-  filterFlights () {
-    let result = [];
+  returnFilteredFlights () {
+    // filter one way flights based on criteria in validateDate()
+    const filteredFlights = flights.filter((flight) => {
+      const details = (flight && flight.details && flight.details[0]) || {};
+      if (flight.details.length === 2 || flight.details.length === 3) {
+        // remove return flight details before updating the state
+        flight.details.pop();
+      }
+      return this.validateFlightsData(details, 'from', 'to', this.state.departureDate);
+    });
     if (this.state.isReturnFlight) {
-      console.log('still thinking');
-    } else {
-      result = flights.filter((flight) => {
-        const {
-          from,
-          destination,
-          departureDate,
-          rangeValue,
-        } = this.state;
-        const userInputFrom = new RegExp(from, 'i');
-        const userInputDestination = new RegExp(destination, 'i');
-        const userInputDepartureDate = new RegExp(departureDate, 'i');
-        const flightPrice = Number(flight.price);
-
-        const matchesFrom = userInputFrom.test(flight.origin);
-        const matchesDestination = userInputDestination.test(flight.destination);
-        const matchesDepartureDate = userInputDepartureDate.test(flight.arrival);
-        const fitsIntoPriceRange = (flightPrice >= rangeValue.min) && (flightPrice <= rangeValue.max);
-
-        return matchesFrom && matchesDestination && matchesDepartureDate && fitsIntoPriceRange;
-      });
+      this.getFilteredReturnFlights(filteredFlights);
     }
-    return result;
+    return filteredFlights;
+  }
+
+  validateFlightsData (details, first, second, third) {
+    const { from, to, rangeValue } = this.state;
+
+    // Make regex with user input from state
+    const userInputFrom = new RegExp(from, 'i');
+    const userInputTo = new RegExp(to, 'i');
+    const userInputDeparture = new RegExp(third, 'i');
+    const flightPrice = Number(details.price); // TODO: compute price for return flights before comparison
+    const matchesFrom = userInputFrom.test(details[first]);
+    const matchesTo = userInputTo.test(details[second]);
+    const matchesDeparture = userInputDeparture.test(details.departure);
+    const fitsIntoPriceRange = (flightPrice >= rangeValue.min) && (flightPrice <= rangeValue.max);
+
+    return matchesFrom && matchesTo && matchesDeparture && fitsIntoPriceRange;
+  }
+
+  getFilteredReturnFlights (filteredFlights) {
+    const filteredReturnFlights = flights.filter((flight) => {
+      const details = (flight && flight.details && flight.details[0]) || {};
+      return this.validateFlightsData(details, 'to', 'from', this.state.returnDate);
+    });
+
+    filteredFlights.forEach((oneWayFlight, i) => {
+      if (oneWayFlight.details.length < 2) {
+        filteredReturnFlights.forEach((returnFlight, j) => {
+          if (oneWayFlight.airlineName === returnFlight.airlineName) {
+            // retrieve returned flight data and push it to the details for the filteredFlights
+            filteredFlights[i].details.push(filteredReturnFlights[j].details[0]);
+          }
+        });
+      }
+    });
+    return filteredFlights;
   }
 
   handleClicksOnSearch () {
     this.setState({
       userHasSearched: true,
-      flights: this.filterFlights(),
+      flights: this.returnFilteredFlights(),
     });
   }
 

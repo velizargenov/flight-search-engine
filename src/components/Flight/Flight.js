@@ -3,20 +3,20 @@ import './Flight.css';
 
 import Button from '../Button/Button';
 
-const FlightDetails = ({ flightType, details }) => {
+const FlightDetails = ({ details, index }) => {
   const {
     flightNumber,
-    originAirport,
-    destinationAirport,
+    fromAirport,
+    toAirport,
     departureTime,
     arrivalTime,
-  } = details;
+  } = details[index];
 
   return (
     <React.Fragment>
-      <div className={`flight--details ${flightType}`}>
+      <div className="flight--details">
         <span className="flight-details--flightNumber">{flightNumber}</span>
-        <span className="flight-details--fromTo">{originAirport} &gt; {destinationAirport}</span>
+        <span className="flight-details--fromTo">{fromAirport} &gt; {toAirport}</span>
         <div className="flight-details--time">
           <span>Depart:</span>
           <span className="time">{departureTime}</span>
@@ -32,16 +32,18 @@ const FlightDetails = ({ flightType, details }) => {
 /* eslint-disable */
 class Flight extends Component {
   render () {
-    const { id, airlineLogo, airlineName, price } = this.props.details;
-
+    const { id, airlineLogo, airlineName, price, details } = this.props.details;
     const renderReturnFlights = () => (
       <React.Fragment>
-        <FlightDetails flightType='return' details={this.props.details} />
+        <FlightDetails details={this.props.details} />
       </React.Fragment>
     );
     const renderOneWayFlights = () => (
-      <FlightDetails flightType='one-way' details={this.props.details} />
+      <FlightDetails details={this.props.details} />
     );
+    const renderFlightsDetails = () => {
+      details.map(flight => <FlightDetails details={details} />)
+    }
 
     return (
       <div className="flight">
@@ -51,7 +53,11 @@ class Flight extends Component {
         </figure>
 
         <div className="flight--details-container">
-          {this.props.isReturnFlight ? renderReturnFlights() : renderOneWayFlights()}
+          {
+            this.props.isReturnFlight 
+              ? details.map((flight, index) => <FlightDetails key={index} index={index} details={details}  />)
+              : details.map((flight, index) => <FlightDetails key={index} index={index} details={details} />)
+          }
         </div>
 
         <div className="flight--price">£{price}</div>

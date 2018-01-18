@@ -11,6 +11,14 @@
   ],
   "rules": {
     "space-before-function-paren": ["error", "always"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/sort-comp": [1, {
+      "order": [
+        "constructor",
+        "lifecycle",
+        "everything-else",
+        "render"
+      ]
+    }]
   }
 }
