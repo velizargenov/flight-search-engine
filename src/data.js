@@ -579,7 +579,6 @@ const flights = [
     ],
   },
   {
-
     airlineName: 'SpiceJet',
     airlineLogo: 'spicejet-logo.png',
     details: [
@@ -635,7 +634,13 @@ const flights = [
 
 // Assign unique ids to each element of the array
 flights.forEach((flight) => {
+  let count = 0;
   flight.id = uuid();
+
+  flight.details.forEach((detail) => {
+    count += detail.price;
+  });
+  flight.price = count;
 });
 
 export default flights;

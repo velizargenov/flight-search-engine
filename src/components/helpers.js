@@ -17,3 +17,14 @@ export function indicateActiveButton (e, customClass) {
     e.target.classList.add(customClass);
   }
 }
+
+export function calculateFlightPrice (filteredFlights) {
+  filteredFlights.forEach((flight) => {
+    let count = 0;
+    flight.details.forEach((detail) => {
+      count += detail.price;
+    });
+    flight.price = count;
+  });
+}
+

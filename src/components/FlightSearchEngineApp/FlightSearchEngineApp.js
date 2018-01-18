@@ -3,7 +3,7 @@ import moment from 'moment';
 import './FlightSearchEngineApp.css';
 
 import flights from '../../data';
-import { formatDate, isValidInput, indicateActiveButton } from '../helpers';
+import { formatDate, isValidInput, indicateActiveButton, calculateFlightPrice } from '../helpers';
 import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 import ResultTable from '../ResultTable/ResultTable';
@@ -82,40 +82,38 @@ class FlightSearchEngineApp extends Component {
   }
 
   returnFilteredFlights () {
-    // filter one way flights based on criteria in validateDate()
     const filteredFlights = flights.filter((flight) => {
       const details = (flight && flight.details && flight.details[0]) || {};
       if (flight.details.length === 2 || flight.details.length === 3) {
-        // remove return flight details before updating the state
-        flight.details.pop();
+        flight.details.pop(); // remove the return flight details before updating the state
       }
-      return this.validateFlightsData(details, 'from', 'to', this.state.departureDate);
+      return this.validateFlightsData(details, 'from', 'to', this.state.departureDate, flight.price);
     });
     if (this.state.isReturnFlight) {
       this.getFilteredReturnFlights(filteredFlights);
     }
+    calculateFlightPrice(filteredFlights);
     return filteredFlights;
   }
 
-  validateFlightsData (details, first, second, third) {
+  validateFlightsData (details, firstMatchFromOrTo, secondMatchFromOrTo, departure, price) {
     const { from, destination, rangeValue } = this.state;
-
-    // Make regex with user input from state
     const userInputFrom = new RegExp(from, 'i');
     const userInputTo = new RegExp(destination, 'i');
-    const userInputDeparture = new RegExp(third, 'i');
-    const flightPrice = Number(details.price); // TODO: compute price for return flights before comparison
-    const matchesFrom = userInputFrom.test(details[first]);
-    const matchesTo = userInputTo.test(details[second]);
+    const userInputDeparture = new RegExp(departure, 'i');
+    const flightPrice = Number(price);
+    const matchesFrom = userInputFrom.test(details[firstMatchFromOrTo]);
+    const matchesTo = userInputTo.test(details[secondMatchFromOrTo]);
     const matchesDeparture = userInputDeparture.test(details.departure);
     const fitsIntoPriceRange = (flightPrice >= rangeValue.min) && (flightPrice <= rangeValue.max);
+
     return matchesFrom && matchesTo && matchesDeparture && fitsIntoPriceRange;
   }
 
   getFilteredReturnFlights (filteredFlights) {
     const filteredReturnFlights = flights.filter((flight) => {
       const details = (flight && flight.details && flight.details[0]) || {};
-      return this.validateFlightsData(details, 'to', 'from', this.state.returnDate);
+      return this.validateFlightsData(details, 'to', 'from', this.state.returnDate, flight.price);
     });
 
     filteredFlights.forEach((oneWayFlight, i) => {
@@ -128,7 +126,6 @@ class FlightSearchEngineApp extends Component {
         });
       }
     });
-    console.log('filteredFlights from getFilteredReturnFlights: ', filteredFlights);
     return filteredFlights;
   }
   handleClicksOnSearch () {
