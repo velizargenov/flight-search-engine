@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
-const InputDate = ({
-  dateType, text, selectedDate, handleDateChange,
-}) => (
-  <div className={`search-bar--date ${dateType}`}>
-    <span className="input--text">{text}</span>
+const InputDate = ({ text, selectedDate, handleDateChange }) => (
+  <div className="search-bar--date">
+    <span className="input--text">
+      {text}
+    </span>
     <span className="search-bar--arrow" />
     <DatePicker
       placeholderText={selectedDate || 'Select a date'}
@@ -17,5 +18,15 @@ const InputDate = ({
     />
   </div>
 );
+
+InputDate.defaultProps = {
+  text: 'Return Date',
+};
+
+InputDate.propTypes = {
+  text: PropTypes.string,
+  selectedDate: PropTypes.string.isRequired,
+  handleDateChange: PropTypes.func.isRequired,
+};
 
 export default InputDate;

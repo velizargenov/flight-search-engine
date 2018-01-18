@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-input-range/lib/css/index.css';
@@ -13,7 +14,6 @@ class Form extends Component {
     this.handlePassengerNumberChange = this.handlePassengerNumberChange.bind(this);
     this.handleFromChange = this.handleFromChange.bind(this);
     this.handleDestinationChange = this.handleDestinationChange.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
   handlePassengerNumberChange (e) {
     this.props.onPassengerNumberChange(e.target.value);
@@ -23,9 +23,6 @@ class Form extends Component {
   }
   handleDestinationChange (e) {
     this.props.onDestinationChange(e.target.value);
-  }
-  handleFormSubmit (e) {
-    e.preventDefault();
   }
 
   render () {
@@ -39,7 +36,7 @@ class Form extends Component {
     } = this.props;
 
     return (
-      <form onSubmit={this.handleFormSubmit}>
+      <form onSubmit={e => e.preventDefault()}>
         <InputField
           htmlFor="fromInput"
           text="From"
@@ -58,7 +55,6 @@ class Form extends Component {
         />
         <InputDate
           selectedDate={departureDate}
-          dateType="departure"
           text="Departure Date"
           handleDateChange={handleDepartureDateChange}
         />
@@ -66,7 +62,6 @@ class Form extends Component {
           isReturnFlight
             ? <InputDate
               selectedDate={returnDate}
-              dateType="Return Date"
               text="Return Date"
               handleDateChange={handleReturnDateChange}
             />
@@ -94,5 +89,17 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  onPassengerNumberChange: PropTypes.PropTypes.func.isRequired,
+  onFromChange: PropTypes.PropTypes.func.isRequired,
+  onDestinationChange: PropTypes.PropTypes.func.isRequired,
+  isReturnFlight: PropTypes.bool.isRequired,
+  departureDate: PropTypes.string.isRequired,
+  returnDate: PropTypes.string.isRequired,
+  handleDepartureDateChange: PropTypes.func.isRequired,
+  handleReturnDateChange: PropTypes.func.isRequired,
+  handleClicksOnSearch: PropTypes.func.isRequired,
+};
 
 export default Form;

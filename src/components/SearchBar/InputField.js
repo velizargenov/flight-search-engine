@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const InputField = ({ htmlFor, text, ...otherProps }) => (
   <label htmlFor={htmlFor} className="input">
@@ -6,5 +7,15 @@ const InputField = ({ htmlFor, text, ...otherProps }) => (
     <input id={htmlFor} {...otherProps} />
   </label>
 );
+
+InputField.defaultProps = {
+  htmlFor: 'uniqueId',
+  text: 'From',
+};
+
+InputField.propTypes = {
+  htmlFor: PropTypes.string,
+  text: PropTypes.string,
+};
 
 export default InputField;

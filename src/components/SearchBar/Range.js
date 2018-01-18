@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputRange from 'react-input-range';
 
 const Range = ({ rangeValue, handleRangeValueChange }) => (
@@ -13,5 +14,13 @@ const Range = ({ rangeValue, handleRangeValueChange }) => (
     />
   </div>
 );
+
+Range.propTypes = {
+  handleRangeValueChange: PropTypes.PropTypes.func.isRequired,
+  rangeValue: PropTypes.shape({
+    max: PropTypes.number.isRequired,
+    min: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default Range;
