@@ -19,7 +19,9 @@ class FlightSearchEngineApp extends Component {
       departureDate: formatDate(moment()),
       returnDate: 'not selected',
       numberOfPassengers: '1',
-      rangeValue: { min: 0, max: 200 },
+      rangeValue: {
+        min: 0, max: 200,
+      },
       userHasSearched: false,
       flights: [],
     };
@@ -46,33 +48,47 @@ class FlightSearchEngineApp extends Component {
   }
 
   handleClicksOnReturnButton (e) {
-    this.setState({ isReturnFlight: true });
+    this.setState({
+      isReturnFlight: true,
+    });
     indicateActiveButton(e, 'active');
   }
 
   handleDepartureDateChange (date) {
-    this.setState({ departureDate: formatDate(date) });
+    this.setState({
+      departureDate: formatDate(date),
+    });
   }
 
   handleReturnDateChange (date) {
-    this.setState({ returnDate: formatDate(date) });
+    this.setState({
+      returnDate: formatDate(date),
+    });
   }
 
   handlePassengerNumberChange (numberOfPassengers) {
-    this.setState({ numberOfPassengers });
+    this.setState({
+      numberOfPassengers,
+    });
   }
 
   handleFromChange (value) {
-    this.setState({ from: value });
+    this.setState({
+      from: value,
+    });
   }
 
   handleDestinationChange (value) {
-    this.setState({ destination: value });
+    this.setState({
+      destination: value,
+    });
   }
 
   handleRangeValueChange (rangeValue) {
     if (!this.state.userHasSearched) {
-      this.setState({ rangeValue });
+      this.setState({
+        rangeValue,
+      });
     } else {
       this.setState({
         rangeValue,
@@ -83,9 +99,9 @@ class FlightSearchEngineApp extends Component {
 
   returnFilteredFlights () {
     const filteredFlights = flights.filter((flight) => {
-      const details = (flight && flight.details && flight.details[0]) || {};
+      const details = (flight && flight.details && flight.details[0]);
       if (flight.details.length === 2 || flight.details.length === 3) {
-        flight.details.pop(); // remove the return flight details before updating the state
+        flight.details.pop();
       }
       return this.validateFlightsData(details, 'from', 'to', this.state.departureDate, flight.price);
     });
@@ -112,7 +128,9 @@ class FlightSearchEngineApp extends Component {
 
   getFilteredReturnFlights (filteredFlights) {
     const filteredReturnFlights = flights.filter((flight) => {
-      const details = (flight && flight.details && flight.details[0]) || {};
+      const details = (flight && flight.details && flight.details[0]) || {
+
+      };
       return this.validateFlightsData(details, 'to', 'from', this.state.returnDate, flight.price);
     });
 
@@ -120,7 +138,6 @@ class FlightSearchEngineApp extends Component {
       if (oneWayFlight.details.length < 2) {
         filteredReturnFlights.forEach((returnFlight, j) => {
           if (oneWayFlight.airlineName === returnFlight.airlineName) {
-            // retrieve returned flight data and push it to the details for the filteredFlights
             filteredFlights[i].details.push(filteredReturnFlights[j].details[0]);
           }
         });

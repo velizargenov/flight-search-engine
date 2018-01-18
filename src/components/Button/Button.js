@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './Button.css';
 
 const Button = ({ htmlFor, handleClick, ...otherProps }) => (
@@ -11,5 +13,15 @@ const Button = ({ htmlFor, handleClick, ...otherProps }) => (
     />
   </label>
 );
+
+Button.defaultProps = {
+  htmlFor: 'uniqueId',
+  handleClick: () => {},
+};
+
+Button.propTypes = {
+  htmlFor: PropTypes.string,
+  handleClick: PropTypes.func,
+};
 
 export default Button;

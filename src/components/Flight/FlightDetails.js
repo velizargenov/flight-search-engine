@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const FlightDetails = ({ details, index }) => {
   const {
@@ -24,6 +25,11 @@ const FlightDetails = ({ details, index }) => {
       </div>
     </React.Fragment>
   );
+};
+
+FlightDetails.propTypes = {
+  index: PropTypes.number.isRequired,
+  details: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default FlightDetails;
