@@ -3,7 +3,7 @@ import moment from 'moment';
 import './FlightSearchEngineApp.css';
 
 import flights from '../../data';
-import { formatDate, isValidInput } from '../helpers';
+import { formatDate, isValidInput, indicateActiveButton } from '../helpers';
 import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 import ResultTable from '../ResultTable/ResultTable';
@@ -37,15 +37,17 @@ class FlightSearchEngineApp extends Component {
     this.getFilteredReturnFlights = this.getFilteredReturnFlights.bind(this);
   }
 
-  handleClicksOnOneWayButton () {
+  handleClicksOnOneWayButton (e) {
     this.setState({
       isReturnFlight: false,
       returnDate: 'not selected',
     });
+    indicateActiveButton(e, 'active');
   }
 
-  handleClicksOnReturnButton () {
+  handleClicksOnReturnButton (e) {
     this.setState({ isReturnFlight: true });
+    indicateActiveButton(e, 'active');
   }
 
   handleDepartureDateChange (date) {

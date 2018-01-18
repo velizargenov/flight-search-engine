@@ -30,12 +30,12 @@ class SearchBar extends Component {
           <Button 
             htmlFor="one-way" 
             className="button--search-bar one-way" 
-            value="One way" 
+            value="One way"
             handleClick={handleClicksOnOneWayButton}
           />
           <Button 
             htmlFor="return" 
-            className="button--search-bar return" 
+            className="button--search-bar return active" 
             value="Return" 
             handleClick={handleClicksOnReturnButton}
           />

@@ -8,6 +8,12 @@
   font-size: 12px;
   letter-spacing: 0.3px;
 }
+.button input:hover {
+  text-decoration: underline;
+}
+.button .active {
+  background: #dcdcdc;
+}
 .button .button--search-bar {
   border-bottom: 0;
   border-radius: 13px 13px 0 0;
