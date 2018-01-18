@@ -96,18 +96,17 @@ class FlightSearchEngineApp extends Component {
   }
 
   validateFlightsData (details, first, second, third) {
-    const { from, to, rangeValue } = this.state;
+    const { from, destination, rangeValue } = this.state;
 
     // Make regex with user input from state
     const userInputFrom = new RegExp(from, 'i');
-    const userInputTo = new RegExp(to, 'i');
+    const userInputTo = new RegExp(destination, 'i');
     const userInputDeparture = new RegExp(third, 'i');
     const flightPrice = Number(details.price); // TODO: compute price for return flights before comparison
     const matchesFrom = userInputFrom.test(details[first]);
     const matchesTo = userInputTo.test(details[second]);
     const matchesDeparture = userInputDeparture.test(details.departure);
     const fitsIntoPriceRange = (flightPrice >= rangeValue.min) && (flightPrice <= rangeValue.max);
-
     return matchesFrom && matchesTo && matchesDeparture && fitsIntoPriceRange;
   }
 
@@ -127,6 +126,7 @@ class FlightSearchEngineApp extends Component {
         });
       }
     });
+    console.log('filteredFlights from getFilteredReturnFlights: ', filteredFlights);
     return filteredFlights;
   }
   handleClicksOnSearch () {
