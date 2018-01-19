@@ -30,7 +30,10 @@ const ResultTable = ({ flights, isReturnFlight, departureDate, returnDate }) => 
               isReturnFlight={isReturnFlight}
             />
           ))
-      : <h1>No flights</h1>
+      : <React.Fragment>
+        <h1>No flights</h1>
+
+      </React.Fragment>
     }
   </div>
 );

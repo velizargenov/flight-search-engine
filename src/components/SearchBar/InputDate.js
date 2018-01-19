@@ -11,9 +11,8 @@ const InputDate = ({ text, selectedDate, handleDateChange }) => (
     <span className="search-bar--arrow" />
     <DatePicker
       placeholderText={selectedDate || 'Select a date'}
-      minDate={moment()}
-      maxDate={moment().add(5, 'days')}
-      todayButton="Today"
+      minDate={moment('2018-01-17')}
+      maxDate={moment('2018-01-17').add(4, 'days')}
       onChange={handleDateChange}
     />
   </div>

@@ -16,7 +16,7 @@ class FlightSearchEngineApp extends Component {
       isReturnFlight: true,
       from: '',
       destination: '',
-      departureDate: formatDate(moment()),
+      departureDate: formatDate(moment('2018-01-18')),
       returnDate: 'not selected',
       numberOfPassengers: '1',
       rangeValue: {
