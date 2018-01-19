@@ -2,12 +2,8 @@
   "name": "flight-search-engine",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "Flight Search Engine prototype",
+  "description": "Coding challenge for ThoughtWorks",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/velizargenov/flight-search-engine"
-  },
   "private": true,
   "dependencies": {
     "moment": "^2.20.1",
