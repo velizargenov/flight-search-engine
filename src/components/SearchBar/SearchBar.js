@@ -58,23 +58,42 @@ const SearchBar = (props) => {
   );
 };
 
+SearchBar.defaultProps = {
+  handleClicksOnOneWayButton: () => {},
+  handleClicksOnReturnButton: () => {},
+  handleDepartureDateChange: () => {},
+  handleReturnDateChange: () => {},
+  isReturnFlight: true,
+  departureDate: '18-01-2018',
+  returnDate: '20-01-2018',
+  onPassengerNumberChange: () => {},
+  onFromChange: () => {},
+  onDestinationChange: () => {},
+  handleRangeValueChange: () => {},
+  handleClicksOnSearch: () => {},
+  rangeValue: {
+    max: 200,
+    min: 0,
+  },
+};
+
 SearchBar.propTypes = {
-  handleClicksOnOneWayButton: PropTypes.func.isRequired,
-  handleClicksOnReturnButton: PropTypes.func.isRequired,
-  handleDepartureDateChange: PropTypes.func.isRequired,
-  handleReturnDateChange: PropTypes.func.isRequired,
-  isReturnFlight: PropTypes.bool.isRequired,
-  departureDate: PropTypes.string.isRequired,
-  returnDate: PropTypes.string.isRequired,
-  onPassengerNumberChange: PropTypes.PropTypes.func.isRequired,
-  onFromChange: PropTypes.PropTypes.func.isRequired,
-  onDestinationChange: PropTypes.PropTypes.func.isRequired,
-  handleRangeValueChange: PropTypes.PropTypes.func.isRequired,
-  handleClicksOnSearch: PropTypes.PropTypes.func.isRequired,
+  handleClicksOnOneWayButton: PropTypes.func,
+  handleClicksOnReturnButton: PropTypes.func,
+  handleDepartureDateChange: PropTypes.func,
+  handleReturnDateChange: PropTypes.func,
+  isReturnFlight: PropTypes.bool,
+  departureDate: PropTypes.string,
+  returnDate: PropTypes.string,
+  onPassengerNumberChange: PropTypes.PropTypes.func,
+  onFromChange: PropTypes.PropTypes.func,
+  onDestinationChange: PropTypes.PropTypes.func,
+  handleRangeValueChange: PropTypes.PropTypes.func,
+  handleClicksOnSearch: PropTypes.PropTypes.func,
   rangeValue: PropTypes.shape({
-    max: PropTypes.number.isRequired,
-    min: PropTypes.number.isRequired,
-  }).isRequired,
+    max: PropTypes.number,
+    min: PropTypes.number,
+  }),
 };
 
 export default SearchBar;
