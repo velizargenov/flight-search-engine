@@ -5,20 +5,17 @@
   overflow: hidden;
 }
 .flight figure {
-  /* border:1px solid black; */
   display: inline-block;
   width: 135px;
   height: 90px;
   margin: 0;
   padding: 0;
-
   float: left;
 }
 .flight figure img {
   width: 100%;
 }
 .flight--price {
-  /* border: 1px solid; */
   font-size: 20px;
   letter-spacing: 0.5px;
   float: left;
@@ -38,7 +35,6 @@
   float: left;
 }
 .flight--details {
-  /* border: 1px solid red; */
   display: inline-block;
   width: 166px;
 }
@@ -54,7 +50,6 @@
   margin-bottom: 3px;
 }
 .flight-details--time {
-  /* border: 1px solid green; */
   width: 102px;
   overflow: hidden;
   margin-bottom: 3px;
@@ -63,17 +58,47 @@
   margin-bottom: 0;
 }
 .flight-details--time > span {
-  /* border: 1px solid orange; */
   display: inline;
 }
 .flight-details--time > .time {
-  /* border: 1px solid blue; */
   float: right;
 }
 .button--search-this-flight {
   float: right;
   position: relative;
-  /* left: 40px; */
   top: 29px;
-  
+}
+
+@media only screen and (max-width: 736px) {
+  .flight {
+    height: 140px
+  }
+  .flight figure {
+    width: 100px;
+    height: 66px;
+  }
+  .flight--details {
+    width: 136px;
+  }
+  .flight--details-container {
+    left: 0;
+    width: 275px;
+  }
+  .flight--price {
+    left: 172px;
+    top: -127px;
+  }
+  .button--search-this-flight {
+    top: -101px;
+    left: -14px;
+  }
+}
+
+@media only screen and (max-height: 414px) {
+  .button--search-this-flight {
+    width: 107px !important;
+    font-size: 11px !important;
+    top: -101px;
+    left: 5px;
+  }
 }

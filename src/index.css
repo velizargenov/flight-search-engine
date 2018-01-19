@@ -76,3 +76,18 @@ body {
   top: -12px;
   width: 0;
 }
+
+@media only screen and (max-width: 736px) {
+  .react-datepicker-wrapper input {
+    width: 135px;
+  }
+  .react-datepicker-wrapper input:first-child {
+    margin-left: -1px !important;
+  }
+  #root>main>div.search-bar>form>div:nth-child(4)>div>div>div>input[type="text"] {
+    margin-left: 5px !important;
+  }
+  .search-bar--arrow {
+    display: none;
+  }
+}

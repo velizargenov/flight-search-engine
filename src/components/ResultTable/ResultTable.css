@@ -46,3 +46,37 @@
 .result-table--summary > .label {
   margin-right: 5px;
 }
+
+@media only screen and (max-width: 736px) { 
+  .result-table {
+    /* display: none; */
+    border: 1px solid;
+    width: 299px;
+    height: 324px;
+    margin-left: 10px;
+    padding: 10px 10px 0 10px;
+    position: relative;
+  }
+  .result-table--header {
+    margin-bottom: 9px;
+  }
+}
+@media only screen and (max-height: 414px) {
+  .result-table {
+    top: -186px;
+    left: 329px;
+    width: 230px;
+  }
+  .result-table--header {
+    height: 55px;
+    text-align: center;
+  }
+  .result-table section {
+    right: 44px;
+    top: 25px;
+  }
+  .flight--price {
+    left: 142px;
+    top: -134px;
+  }
+}
