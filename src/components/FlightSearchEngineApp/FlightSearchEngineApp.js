@@ -145,6 +145,7 @@ class FlightSearchEngineApp extends Component {
     });
     return filteredFlights;
   }
+
   handleClicksOnSearch () {
     const { from, destination } = this.state;
     const inputFromIsValid = isValidInput(from);
