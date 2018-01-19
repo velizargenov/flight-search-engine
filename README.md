@@ -31,7 +31,7 @@ $ npm test
 $ npm coverage
 ```
 
-### Instructions to test the App
+### Instructions to use the App
 
 #### Scenario 1
 ```
