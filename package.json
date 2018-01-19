@@ -52,27 +52,34 @@
       "import"
     ],
     "rules": {
-      "space-before-function-paren": ["error", "always"],
+      "space-before-function-paren": [
+        "error",
+        "always"
+      ],
       "react/jsx-filename-extension": [1, {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]}
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
       ],
       "object-curly-newline": ["error", {
-        "ObjectExpression": "always",
-        "ObjectPattern": {
-          "multiline": true,
-          "minProperties": 6
-        }}
+          "ObjectExpression": "always",
+          "ObjectPattern": {
+            "multiline": true,
+            "minProperties": 6
+          }
+        }
       ],
-      "react/sort-comp": [1, {
-        "order": [
-          "constructor",
-          "lifecycle",
-          "everything-else",
-          "render"
-        ]}
+      "react/sort-comp": [1,
+        {
+          "order": [
+            "constructor",
+            "lifecycle",
+            "everything-else",
+            "render"
+          ]
+        }
       ]
     }
   }
