@@ -33,19 +33,20 @@ const ResultTable = ({ flights, isReturnFlight, departureDate, returnDate }) => 
       : <React.Fragment>
         <h1>No flights</h1>
 
-      </React.Fragment>
+        </React.Fragment>
     }
   </div>
 );
 
 ResultTable.defaultProps = {
+  isReturnFlight: true,
   departureDate: '18-01-2018',
   returnDate: '19-01-2018',
 };
 
 ResultTable.propTypes = {
-  flights: PropTypes.arrayOf(PropTypes.object).isRequired,
-  isReturnFlight: PropTypes.bool.isRequired,
+  flights: PropTypes.arrayOf(PropTypes.object),
+  isReturnFlight: PropTypes.bool,
   departureDate: PropTypes.string,
   returnDate: PropTypes.string,
 };

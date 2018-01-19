@@ -1,26 +1,42 @@
 import React from 'react';
+import toJson from 'enzyme-to-json';
 import { shallow } from 'enzyme';
 
-import flights from '../../data';
 import FlightSearchEngineApp from './FlightSearchEngineApp';
 import Header from '../Header/Header';
+import SearchBar from '../SearchBar/SearchBar';
 import ResultTable from '../ResultTable/ResultTable';
 
 let wrapper;
 beforeEach(() => {
-  wrapper = shallow(<FlightSearchEngineApp flights={flights} />);
+  wrapper = shallow(<FlightSearchEngineApp />);
 });
 
-describe('<FlightSearchEngineApp /> component', () => {
-  describe('Renders child components correctly', () => {
-    it('should render <FlightSearchEngineApp /> without crashing', () => {
+describe('FlightSearchEngineApp Component', () => {
+  describe('Rendering', () => {
+    it('matches snapshot', () => {
+      expect(toJson(wrapper)).toMatchSnapshot();
+    });
+    it('should render without crashing', () => {
       expect(wrapper.length).toBe(1);
     });
-    it('renders <Header /> component inside <FlightSearchEngineApp /> component', () => {
-      expect(wrapper.find(Header).length).toBe(1);
+    it('should render Header, SearchBar and ResultTable', () => {
+      expect(wrapper.containsAllMatchingElements([
+        <Header />,
+        <SearchBar />,
+        <ResultTable />,
+      ]));
     });
-    it('renders <ResultTable /> component inside <FlightSearchEngineApp /> component', () => {
+    it('should render one of each Header, SearchBar, ResultTable', () => {
+      expect(wrapper.find(Header).length).toBe(1);
+      expect(wrapper.find(SearchBar).length).toBe(1);
       expect(wrapper.find(ResultTable).length).toBe(1);
+    });
+    it('should render one <React.Fragment> element', () => {
+      expect(wrapper.find('main').length).toBe(1);
+    });
+    it('should render one <main> element', () => {
+      expect(wrapper.find('main').length).toBe(1);
     });
   });
 });

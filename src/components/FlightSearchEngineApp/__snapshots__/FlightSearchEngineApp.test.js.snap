@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlightSearchEngineApp Component Rendering matches snapshot 1`] = `
+<React.Fragment>
+  <Header />
+  <main>
+    <SearchBar
+      departureDate="18-01-2018"
+      handleClicksOnOneWayButton={[Function]}
+      handleClicksOnReturnButton={[Function]}
+      handleClicksOnSearch={[Function]}
+      handleDepartureDateChange={[Function]}
+      handleRangeValueChange={[Function]}
+      handleReturnDateChange={[Function]}
+      isReturnFlight={true}
+      onDestinationChange={[Function]}
+      onFromChange={[Function]}
+      onPassengerNumberChange={[Function]}
+      rangeValue={
+        Object {
+          "max": 200,
+          "min": 0,
+        }
+      }
+      returnDate="not selected"
+    />
+    <ResultTable
+      departureDate="18-01-2018"
+      destination=""
+      flights={Array []}
+      from=""
+      isReturnFlight={true}
+      returnDate="not selected"
+    />
+  </main>
+</React.Fragment>
+`;
