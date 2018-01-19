@@ -39,5 +39,41 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "plugins": [
+      "react",
+      "jsx-a11y",
+      "import"
+    ],
+    "rules": {
+      "space-before-function-paren": ["error", "always"],
+      "react/jsx-filename-extension": [1, {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]}
+      ],
+      "object-curly-newline": ["error", {
+        "ObjectExpression": "always",
+        "ObjectPattern": {
+          "multiline": true,
+          "minProperties": 6
+        }}
+      ],
+      "react/sort-comp": [1, {
+        "order": [
+          "constructor",
+          "lifecycle",
+          "everything-else",
+          "render"
+        ]}
+      ]
+    }
   }
 }
