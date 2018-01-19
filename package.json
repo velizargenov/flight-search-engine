@@ -29,6 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --watch --verbose",
+    "coverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
   "jest": {
@@ -52,14 +53,18 @@
         "error",
         "always"
       ],
-      "react/jsx-filename-extension": [1, {
+      "react/jsx-filename-extension": [
+        1,
+        {
           "extensions": [
             ".js",
             ".jsx"
           ]
         }
       ],
-      "object-curly-newline": ["error", {
+      "object-curly-newline": [
+        "error",
+        {
           "ObjectExpression": "always",
           "ObjectPattern": {
             "multiline": true,
@@ -67,7 +72,8 @@
           }
         }
       ],
-      "react/sort-comp": [1,
+      "react/sort-comp": [
+        1,
         {
           "order": [
             "constructor",
