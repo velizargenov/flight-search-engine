@@ -20,14 +20,14 @@ describe('FlightSearchEngineApp Component', () => {
     it('should render without crashing', () => {
       expect(wrapper.length).toBe(1);
     });
-    it('should render Header, SearchBar and ResultTable', () => {
+    it('should render Header, SearchBar and ResultTable components', () => {
       expect(wrapper.containsAllMatchingElements([
         <Header />,
         <SearchBar />,
         <ResultTable />,
       ]));
     });
-    it('should render one of each Header, SearchBar, ResultTable', () => {
+    it('should render one of each Header, SearchBar, ResultTable components', () => {
       expect(wrapper.find(Header).length).toBe(1);
       expect(wrapper.find(SearchBar).length).toBe(1);
       expect(wrapper.find(ResultTable).length).toBe(1);

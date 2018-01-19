@@ -29,7 +29,7 @@ const FlightDetails = ({ details, index }) => {
 
 FlightDetails.propTypes = {
   index: PropTypes.number.isRequired,
-  details: PropTypes.arrayOf(PropTypes.object).isRequired,
+  details: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default FlightDetails;

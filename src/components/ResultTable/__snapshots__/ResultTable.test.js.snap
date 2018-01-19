@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultTable Component matches snapshot 1`] = `
+<div
+  className="result-table"
+>
+  <div
+    className="result-table--header"
+  >
+    <h2>
+      Your Results
+    </h2>
+    <section>
+      <span
+        className="result-table--summary depart"
+      >
+        <span
+          className="label"
+        >
+          Depart: 
+          <span>
+            18-01-2018
+          </span>
+        </span>
+      </span>
+      <span
+        className="result-table--summary return"
+      >
+        <span
+          className="label"
+        >
+          Return: 
+          <span>
+            19-01-2018
+          </span>
+        </span>
+      </span>
+    </section>
+  </div>
+  <h1>
+    No flights
+  </h1>
+</div>
+`;

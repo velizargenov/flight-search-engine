@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Component matches snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <InputField
+    htmlFor="fromInput"
+    onChange={[Function]}
+    placeholder="Enter your input here..."
+    required={true}
+    text="From"
+    type="text"
+  />
+  <InputField
+    htmlFor="destinationInput"
+    onChange={[Function]}
+    placeholder="Enter your input here..."
+    required={true}
+    text="Destination"
+    type="text"
+  />
+  <InputDate
+    handleDateChange={[Function]}
+    selectedDate="18-01-2018"
+    text="Departure Date"
+  />
+  <InputDate
+    handleDateChange={[Function]}
+    selectedDate="19-01-2018"
+    text="Return Date"
+  />
+  <InputField
+    defaultValue="1"
+    htmlFor="passenger"
+    max="5"
+    min="1"
+    onChange={[Function]}
+    text="Passenger"
+    type="number"
+  />
+  <Button
+    className="search-bar--button-search"
+    defaultValue="Search"
+    handleClick={[Function]}
+    htmlFor="search"
+    type="submit"
+  />
+</form>
+`;
+
+exports[`InputDate Component matches snapshot 1`] = `
+<div
+  className="search-bar--date"
+>
+  <span
+    className="input--text"
+  >
+    Return Date
+  </span>
+  <span
+    className="search-bar--arrow"
+  />
+  <DatePicker
+    allowSameDay={false}
+    dateFormat="L"
+    dateFormatCalendar="MMMM YYYY"
+    disabled={false}
+    disabledKeyboardNavigation={false}
+    dropdownMode="scroll"
+    maxDate={"2018-01-21T00:00:00.000Z"}
+    minDate={"2018-01-17T00:00:00.000Z"}
+    monthsShown={1}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onClickOutside={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMonthChange={[Function]}
+    onSelect={[Function]}
+    onYearChange={[Function]}
+    placeholderText="18-01-2018"
+    preventOpenOnFocus={false}
+    shouldCloseOnSelect={true}
+    showTimeSelect={false}
+    timeIntervals={30}
+    withPortal={false}
+  />
+</div>
+`;
+
+exports[`InputField Component matches snapshot 1`] = `
+<label
+  className="input"
+  htmlFor="uniqueId"
+>
+  <span
+    className="input--text"
+  >
+    From
+  </span>
+  <input
+    id="uniqueId"
+  />
+</label>
+`;
+
+exports[`Range Component matches snapshot 1`] = `
+<div
+  className="search-bar--input-range"
+>
+  <span
+    className="input input--text"
+  >
+    Refine Flight Search
+  </span>
+  <InputRange
+    allowSameValues={false}
+    classNames={
+      Object {
+        "activeTrack": "input-range__track input-range__track--active",
+        "disabledInputRange": "input-range input-range--disabled",
+        "inputRange": "input-range",
+        "labelContainer": "input-range__label-container",
+        "maxLabel": "input-range__label input-range__label--max",
+        "minLabel": "input-range__label input-range__label--min",
+        "slider": "input-range__slider",
+        "sliderContainer": "input-range__slider-container",
+        "track": "input-range__track input-range__track--background",
+        "valueLabel": "input-range__label input-range__label--value",
+      }
+    }
+    disabled={false}
+    maxValue={200}
+    minValue={0}
+    onChange={[Function]}
+    step={10}
+    value={
+      Object {
+        "max": 200,
+        "min": 0,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`SearchBar Component matches snapshot 1`] = `
+<div
+  className="search-bar"
+>
+  <div
+    className="search-bar--buttons"
+  >
+    <Button
+      className="button--search-bar one-way"
+      handleClick={[Function]}
+      htmlFor="one-way"
+      value="One way"
+    />
+    <Button
+      className="button--search-bar return active"
+      handleClick={[Function]}
+      htmlFor="return"
+      value="Return"
+    />
+  </div>
+  <Form
+    departureDate="18-01-2018"
+    handleClicksOnSearch={[Function]}
+    handleDepartureDateChange={[Function]}
+    handleReturnDateChange={[Function]}
+    isReturnFlight={true}
+    onDestinationChange={[Function]}
+    onFromChange={[Function]}
+    onPassengerNumberChange={[Function]}
+    returnDate="20-01-2018"
+  />
+  <Range
+    handleRangeValueChange={[Function]}
+    rangeValue={
+      Object {
+        "max": 200,
+        "min": 0,
+      }
+    }
+  />
+</div>
+`;

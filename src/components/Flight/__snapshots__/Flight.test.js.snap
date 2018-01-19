@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flight Component matches snapshot 1`] = `
+<div
+  className="flight"
+>
+  <figure>
+    <img
+      alt="Air India"
+      src="/images/air-india-logo.png"
+    />
+  </figure>
+  <div
+    className="flight--details-container"
+  />
+  <div
+    className="flight--price"
+  >
+    £
+  </div>
+  <Button
+    className="button--search-this-flight"
+    handleClick={[Function]}
+    htmlFor="uniqueId"
+    value="Search this flight"
+  />
+</div>
+`;
+
+exports[`FlightDetails Component matches snapshot 1`] = `
+<React.Fragment>
+  <div
+    className="flight--details"
+  >
+    <span
+      className="flight-details--flightNumber"
+    >
+      AI-101
+    </span>
+    <span
+      className="flight-details--fromTo"
+    >
+      DEL
+       &gt; 
+      PNQ
+    </span>
+    <div
+      className="flight-details--time"
+    >
+      <span>
+        Depart:
+      </span>
+      <span
+        className="time"
+      >
+        10:00 AM
+      </span>
+    </div>
+    <div
+      className="flight-details--time"
+    >
+      <span>
+        Arrive:
+      </span>
+      <span
+        className="time"
+      >
+        12:10 AM
+      </span>
+    </div>
+  </div>
+</React.Fragment>
+`;

@@ -20,12 +20,14 @@ const InputDate = ({ text, selectedDate, handleDateChange }) => (
 
 InputDate.defaultProps = {
   text: 'Return Date',
+  selectedDate: '18-01-2018',
+  handleDateChange: () => {},
 };
 
 InputDate.propTypes = {
   text: PropTypes.string,
-  selectedDate: PropTypes.string.isRequired,
-  handleDateChange: PropTypes.func.isRequired,
+  selectedDate: PropTypes.string,
+  handleDateChange: PropTypes.func,
 };
 
 export default InputDate;

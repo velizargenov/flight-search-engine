@@ -8,7 +8,7 @@ const ResultTable = ({ flights, isReturnFlight, departureDate, returnDate }) => 
   <div className="result-table">
     <div className="result-table--header">
       <h2>Your Results</h2>
-      <section >
+      <section>
         <span className="result-table--summary depart">
           <span className="label">Depart: <span>{departureDate}</span></span>
         </span>
@@ -30,10 +30,7 @@ const ResultTable = ({ flights, isReturnFlight, departureDate, returnDate }) => 
               isReturnFlight={isReturnFlight}
             />
           ))
-      : <React.Fragment>
-        <h1>No flights</h1>
-
-        </React.Fragment>
+      : <h1>No flights</h1>
     }
   </div>
 );
@@ -45,7 +42,6 @@ ResultTable.defaultProps = {
 };
 
 ResultTable.propTypes = {
-  flights: PropTypes.arrayOf(PropTypes.object),
   isReturnFlight: PropTypes.bool,
   departureDate: PropTypes.string,
   returnDate: PropTypes.string,

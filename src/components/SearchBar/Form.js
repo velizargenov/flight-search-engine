@@ -90,16 +90,28 @@ class Form extends Component {
   }
 }
 
+Form.defaultProps = {
+  onPassengerNumberChange: () => {},
+  onFromChange: () => {},
+  onDestinationChange: () => {},
+  isReturnFlight: true,
+  departureDate: '18-01-2018',
+  returnDate: '19-01-2018',
+  handleDepartureDateChange: () => {},
+  handleReturnDateChange: () => {},
+  handleClicksOnSearch: () => {},
+};
+
 Form.propTypes = {
-  onPassengerNumberChange: PropTypes.PropTypes.func.isRequired,
-  onFromChange: PropTypes.PropTypes.func.isRequired,
-  onDestinationChange: PropTypes.PropTypes.func.isRequired,
-  isReturnFlight: PropTypes.bool.isRequired,
-  departureDate: PropTypes.string.isRequired,
-  returnDate: PropTypes.string.isRequired,
-  handleDepartureDateChange: PropTypes.func.isRequired,
-  handleReturnDateChange: PropTypes.func.isRequired,
-  handleClicksOnSearch: PropTypes.func.isRequired,
+  onPassengerNumberChange: PropTypes.func,
+  onFromChange: PropTypes.func,
+  onDestinationChange: PropTypes.func,
+  isReturnFlight: PropTypes.bool,
+  departureDate: PropTypes.string,
+  returnDate: PropTypes.string,
+  handleDepartureDateChange: PropTypes.func,
+  handleReturnDateChange: PropTypes.func,
+  handleClicksOnSearch: PropTypes.func,
 };
 
 export default Form;

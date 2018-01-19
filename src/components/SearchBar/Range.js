@@ -15,12 +15,20 @@ const Range = ({ rangeValue, handleRangeValueChange }) => (
   </div>
 );
 
+Range.defaultProps = {
+  handleRangeValueChange: () => {},
+  rangeValue: {
+    max: 200,
+    min: 0,
+  },
+};
+
 Range.propTypes = {
-  handleRangeValueChange: PropTypes.PropTypes.func.isRequired,
+  handleRangeValueChange: PropTypes.PropTypes.func,
   rangeValue: PropTypes.shape({
     max: PropTypes.number.isRequired,
     min: PropTypes.number.isRequired,
-  }).isRequired,
+  }),
 };
 
 export default Range;
