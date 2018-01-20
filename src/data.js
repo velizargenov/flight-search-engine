@@ -1,11 +1,7 @@
 import uuid from 'uuid/v4';
 
 const flights = [
-  // -------------------------------
-  // AIR INDIA
-  // -------------------------------
-  // #region
-  { // AIR INDIA: DEL-PNQ: 18-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -22,7 +18,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: PNQ-DEL: 18-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -39,7 +35,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: PNQ-BOM: 18-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -56,7 +52,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: BOM-PNQ: 18-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -73,7 +69,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: DEL-BOM: 18-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -90,7 +86,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: BOM-DEL: 18-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -107,7 +103,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: 19-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -141,7 +137,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: PNQ-BOM: 19-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -158,7 +154,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: BOM-PNQ: 19-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -175,7 +171,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: DEL-BOM: 19-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -192,7 +188,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: BOM-DEL: 19-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -209,7 +205,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: 20-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -243,7 +239,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: PNQ-BOM: 20-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -260,7 +256,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: BOM-PNQ: 18-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -277,7 +273,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: DEL-BOM: 18-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -294,7 +290,7 @@ const flights = [
       },
     ],
   },
-  { // AIR INDIA: BOM-DEL: 18-01-2018
+  {
     airlineName: 'Air India',
     airlineLogo: 'air-india-logo.png',
     details: [
@@ -311,13 +307,9 @@ const flights = [
       },
     ],
   },
-  // #endregion
 
-  // -------------------------------
-  // INDIGO
-  // -------------------------------
-  // #region
-  { // INDIGO: 18-01-2018
+
+  {
     airlineName: 'IndiGo',
     airlineLogo: 'indigo-logo.png',
     details: [
@@ -351,7 +343,7 @@ const flights = [
       },
     ],
   },
-  { // INDIGO: 18-01-2018
+  {
     airlineName: 'IndiGo',
     airlineLogo: 'indigo-logo.png',
     details: [
@@ -385,7 +377,7 @@ const flights = [
       },
     ],
   },
-  { // INDIGO: 19-01-2018
+  {
     airlineName: 'IndiGo',
     airlineLogo: 'indigo-logo.png',
     details: [
@@ -419,7 +411,7 @@ const flights = [
       },
     ],
   },
-  { // INDIGO: 20-01-201
+  {
     airlineName: 'IndiGo',
     airlineLogo: 'indigo-logo.png',
     details: [
@@ -453,9 +445,7 @@ const flights = [
       },
     ],
   },
-
-
-  { // INDIGO: 20-01-201
+  {
     airlineName: 'IndiGo',
     airlineLogo: 'indigo-logo.png',
     details: [
@@ -487,13 +477,7 @@ const flights = [
       },
     ],
   },
-  // #endregion
-
-  // -------------------------------
-  // SpiceJet
-  // -------------------------------
-  // #region
-  { // SPICEJET: 18-01-2018
+  {
     airlineName: 'SpiceJet',
     airlineLogo: 'spicejet-logo.png',
     details: [
@@ -527,7 +511,7 @@ const flights = [
       },
     ],
   },
-  { // SPICEJET: 19-01-2018
+  {
     airlineName: 'SpiceJet',
     airlineLogo: 'spicejet-logo.png',
     details: [
@@ -561,7 +545,7 @@ const flights = [
       },
     ],
   },
-  { // SPICEJET: 20-01-2018
+  {
     airlineName: 'SpiceJet',
     airlineLogo: 'spicejet-logo.png',
     details: [
@@ -595,7 +579,7 @@ const flights = [
       },
     ],
   },
-  { // SPICE JET: 20-01-2018
+  {
     airlineName: 'SpiceJet',
     airlineLogo: 'spicejet-logo.png',
     details: [
@@ -629,10 +613,8 @@ const flights = [
       },
     ],
   },
-  // #endregion
 ];
 
-// Assign unique ids to each element of the array
 flights.forEach((flight) => {
   let count = 0;
   flight.id = uuid();
