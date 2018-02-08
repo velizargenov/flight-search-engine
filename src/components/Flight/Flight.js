@@ -9,6 +9,7 @@ import FlightDetails from './FlightDetails';
 
 const Flight = (props) => {
   const { id, airlineLogo, airlineName, details, price } = props.details;
+  const { handleClicksOnSearchThisFlight } = props;
 
   return (
     <div className="flight">
@@ -29,6 +30,7 @@ const Flight = (props) => {
       <div className="flight--price">£{price}</div>
       <Button
         htmlFor={id}
+        handleClick={() => handleClicksOnSearchThisFlight([props.details])}
         className="button--search-this-flight"
         value="Search this flight"
       />

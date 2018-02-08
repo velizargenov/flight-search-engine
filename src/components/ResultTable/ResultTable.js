@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Flight from '../Flight/Flight';
 import './ResultTable.css';
 
-const ResultTable = ({ flights, isReturnFlight, departureDate, returnDate }) => (
+const ResultTable = ({ flights, isReturnFlight, departureDate, returnDate, handleClicksOnSearchThisFlight }) => (
   <div className="result-table">
     <div className="result-table--header">
       <h2>Your Results</h2>
@@ -28,6 +28,7 @@ const ResultTable = ({ flights, isReturnFlight, departureDate, returnDate }) => 
               key={flight.id}
               details={flight}
               isReturnFlight={isReturnFlight}
+              handleClicksOnSearchThisFlight={handleClicksOnSearchThisFlight}
             />
           ))
       : <h1>No flights</h1>

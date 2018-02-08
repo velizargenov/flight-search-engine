@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import axios from 'axios';
 import './FlightSearchEngineApp.css';
 
 import flights from '../../data';
@@ -23,6 +24,7 @@ class FlightSearchEngineApp extends Component {
         min: 0, max: 200,
       },
       userHasSearched: false,
+      data: [],
       flights: [],
     };
 
@@ -37,6 +39,20 @@ class FlightSearchEngineApp extends Component {
     this.handleClicksOnSearch = this.handleClicksOnSearch.bind(this);
     this.returnFilteredFlights = this.returnFilteredFlights.bind(this);
     this.getFilteredReturnFlights = this.getFilteredReturnFlights.bind(this);
+    this.handleClicksOnSearchThisFlight = this.handleClicksOnSearchThisFlight.bind(this);
+  }
+
+  componentDidMount () {
+    const url = 'http://localhost:3001/flights';
+    axios.get(url)
+      .then((res) => {
+        this.setState({
+          data: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log('res: ', err);
+      });
   }
 
   handleClicksOnOneWayButton (e) {
@@ -98,7 +114,7 @@ class FlightSearchEngineApp extends Component {
   }
 
   returnFilteredFlights () {
-    const filteredFlights = flights.filter((flight) => {
+    const filteredFlights = this.state.data.filter((flight) => {
       const details = (flight && flight.details && flight.details[0]);
       if (flight.details.length === 2 || flight.details.length === 3) {
         flight.details.pop();
@@ -159,6 +175,12 @@ class FlightSearchEngineApp extends Component {
     }
   }
 
+  handleClicksOnSearchThisFlight (newData) {
+    this.setState({
+      flights: newData,
+    });
+  }
+
   render () {
     const {
       from,
@@ -195,6 +217,7 @@ class FlightSearchEngineApp extends Component {
             isReturnFlight={isReturnFlight}
             departureDate={departureDate}
             returnDate={returnDate}
+            handleClicksOnSearchThisFlight={this.handleClicksOnSearchThisFlight}
           />
         </main>
       </React.Fragment>
